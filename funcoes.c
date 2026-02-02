@@ -4,9 +4,8 @@
     Método que roda a main principal do Trabalho Final.
 */
 void main_trabalho_final() {
-    int opcao = -1;
     List * list = NULL;
-    Cliente *clientes = NULL;
+    Cliente *clientes = NULL; 
 
     list = create_list();
 
@@ -33,6 +32,9 @@ List *create_list() {
 void menu_principal() {
     int opcao = 0;
     
+    do { 
+    system("cls");
+
     printf("----------------- MENU PRINCIPAL ----------------------\n");
     printf("*            (1) Gerenciamento de Clientes            *\n");
     printf("*            (2) Gerenciamento de Produtos            *\n");
@@ -42,7 +44,7 @@ void menu_principal() {
     printf("Digite a opcao desejada --> ");
     scanf("%d", &opcao);	
 
-     do {  
+     
         switch(opcao) {
             case 1:
                 menu_cliente();
@@ -65,7 +67,6 @@ void menu_principal() {
         }
 
     } while(opcao != 4);
-    return;
 }
 
 /*
@@ -73,8 +74,10 @@ void menu_principal() {
     permite ao usuário escolher uma opção.
 */
 void menu_cliente() {
-    system("cls");
     int opcao = 0;
+
+    do {
+    system("cls"); 
 
     printf("----------------- MENU CLIENTE ------------------\n");
     printf("*            (1) Cadastrar Cliente              *\n");
@@ -87,7 +90,7 @@ void menu_cliente() {
     printf("Digite a opcao desejada --> ");
     scanf("%d", &opcao);	
 
-    do { 
+     
         switch(opcao) {
             case 1:
                 
@@ -110,7 +113,6 @@ void menu_cliente() {
                 break;
 
             case 6:
-                menu_principal();
                 break;
             
             default:
@@ -122,8 +124,10 @@ void menu_cliente() {
 }
 
 void menu_produto() {
-    system("cls");
     int opcao = 0;
+    
+    do { 
+    system("cls");
     
     printf("----------------- MENU PRODUTO ------------------\n");
     printf("*            (1) Cadastrar Produto              *\n");
@@ -136,7 +140,6 @@ void menu_produto() {
     printf("Digite a opcao desejada --> ");
     scanf("%d", &opcao);	
 
-    do { 
         switch(opcao) {
             case 1:
                 
@@ -159,7 +162,6 @@ void menu_produto() {
                 break;
 
             case 6:
-                menu_principal();
                 break;
             
             default:
