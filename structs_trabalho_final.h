@@ -8,17 +8,6 @@ typedef struct list {
 	int size;
 }List;
 
-typedef struct cliente {
-    char cpf[15];
-    char *nome;
-    char *email;
-    char *telefone;
-    struct data nascimento; 
-    int qt_produtos;
-    struct cliente *next;
-    struct produto *lista_produtos; 
-}Cliente;
-
 typedef struct data {
     int dia;
     int mes;
@@ -33,5 +22,15 @@ typedef struct produto {
     struct produto *next;
 }Produto;
 
-#endif
+typedef struct cliente {
+    char cpf[15];
+    char *nome;
+    char *email;
+    char *telefone;
+    struct data nascimento; 
+    int qt_produtos;
+    struct cliente *next;
+    struct produto *carrinho; 
+}Cliente;
 
+#endif
