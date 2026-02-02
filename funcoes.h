@@ -12,9 +12,18 @@
 
 void main_trabalho_final();
 List *create_list();
-void menu_principal();
-void menu_cliente();
+void menu_principal(List *list);
+void menu_cliente(List *list);
 void menu_produto();
 void menu_encerra();
+void menu_cadastro_cliente(List *list);
+Cliente *create_cliente();
+void edita_informacao(char *nome, int x);
+void push(List * list, Cliente *cliente, int i);
+void print_list(List *, int);
+int is_empty(List **list);
+int verifica_unico(List *list, char cpf[]);
+Cliente *buscar_cliente_cpf(List * list);
+void visualizar_cliente(List * list, int i);
 
 #endif
