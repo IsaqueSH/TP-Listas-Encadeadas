@@ -14,12 +14,8 @@ List_Prod *create_product_list();
 void menu_principal(List *list, List_Prod *plist);
 void menu_cliente(List *list);
 void menu_produto(List_Prod *plist);
-<<<<<<< HEAD
 void menu_compra(List_Prod *plist, Cliente *cliente);
 void dados_cliente(Cliente *cliente);
-=======
-void menu_compra(List *list, List_Prod *plist);
->>>>>>> e32ecf0 (feat: adiciona parâmetros, declarações de CRUD de produtos e funções auxiliares em funcoes.h)
 void menu_encerra();
 void menu_cadastro_cliente(List *list);
 
@@ -39,7 +35,6 @@ void pop_index_cliente(List * list, Cliente *cliente_anterior, Cliente *cliente_
 
 /* Produtos */
 Produto *create_produto();
-<<<<<<< HEAD
 void push_produto(List_Prod *plist, Produto *p, int i);
 void menu_cadastro_produto(List_Prod *plist);
 void print_produtos(List_Prod *plist, int i);
@@ -66,22 +61,5 @@ Produto *busca_produto_carrinho_versao2(Cliente *cliente, char *codigo);
 void free_lista_clientes(List *list);
 void free_lista_produtos(List_Prod *list_prod);
 
-=======
-void push_produto(List_Prod *plist, Produto *produto, int i);
-void menu_cadastro_produto(List_Prod *plist);
-void print_produtos(List_Prod *plist, int i);
-int verifica_unico_produto(List_Prod *plist, char codigo[]);
-Produto *buscar_produto_codigo(List_Prod *plist);
-void visualizar_produto(List_Prod *plist, int i);
-void edita_produto(Produto *produto, List_Prod *plist);
-void exclui_produto(List_Prod *plist, Produto *produto);
-void pop_produto_catalog(List_Prod *plist, int i);
-void pop_index_produto(List_Prod *plist, Produto *produto_anterior, Produto *produto_excluir);
-
-/* Carrinho / Compra */
-void adicionar_produto_ao_carrinho(List *list, List_Prod *plist);
-void listar_carrinho_cliente(Cliente *cliente);
-void remover_produto_do_carrinho(List *list, List_Prod *plist);
->>>>>>> e32ecf0 (feat: adiciona parâmetros, declarações de CRUD de produtos e funções auxiliares em funcoes.h)
 
 #endif
