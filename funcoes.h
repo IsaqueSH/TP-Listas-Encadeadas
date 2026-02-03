@@ -25,5 +25,10 @@ int is_empty(List **list);
 int verifica_unico(List *list, char cpf[]);
 Cliente *buscar_cliente_cpf(List * list);
 void visualizar_cliente(List * list, int i);
+void edita_cliente(Cliente *cliente, List *list);
+void exclui_cliente(List *list, Cliente *cliente);
+void pop_cliente(List * list, int i);
+void pop_produto(Cliente *cliente, int i);
+void pop_index_cliente(List * list, Cliente *cliente_anterior, Cliente *cliente_excluir);
 
 #endif
