@@ -3,16 +3,15 @@
 
 #include <stdlib.h>
 
-typedef struct list {
-	struct cliente *head; 
-	int size;
-}List;
+/* ===================== DATA ===================== */
 
 typedef struct data {
     int dia;
     int mes;
     int ano;
-}Data;
+} Data;
+
+/* ===================== PRODUTO ===================== */
 
 typedef struct produto {
     char *codigo;
@@ -20,17 +19,33 @@ typedef struct produto {
     float preco;
     int quantidade;
     struct produto *next;
-}Produto;
+} Produto;
+
+/* ===================== CLIENTE ===================== */
 
 typedef struct cliente {
     char cpf[15];
     char *nome;
     char *email;
     char *telefone;
-    struct data nascimento; 
+    Data nascimento;
     int qt_produtos;
     struct cliente *next;
-    struct produto *carrinho; 
-}Cliente;
+    Produto *carrinho;
+} Cliente;
+
+/* ===================== LISTA DE CLIENTES ===================== */
+
+typedef struct list {
+    Cliente *head;
+    int size;
+} List;
+
+/* ===================== LISTA DE PRODUTOS ===================== */
+
+typedef struct list_prod {
+    Produto *head;
+    int size;
+} List_Prod;
 
 #endif
