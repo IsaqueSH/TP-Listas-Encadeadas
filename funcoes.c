@@ -52,7 +52,7 @@ void menu_principal(List *list, List_Prod *list_prod) {
     int opcao = 0; 
     
     do { 
-    system("cls");
+    system("clear");
 
     printf("----------------- MENU PRINCIPAL ----------------------\n");
     printf("*            (1) Gerenciamento de Clientes            *\n");
@@ -105,7 +105,7 @@ void menu_principal(List *list, List_Prod *list_prod) {
 void menu_encerra() {
     printf("\n\tEncerrando....\n\n");
     sleep(2);
-    system("cls");
+    system("clear");
 }
 
 /* ================================= MENU DE CLIENTES ================================== */
@@ -118,7 +118,7 @@ void menu_cliente(List *list) {
     Cliente *cliente = NULL;
 
     do {
-    system("cls"); 
+    system("clear"); 
 
     printf("----------------- MENU CLIENTE ------------------\n");
     printf("*            (1) Cadastrar Cliente              *\n");
@@ -186,7 +186,7 @@ void menu_produto(List_Prod *plist) {
     Produto *prod = NULL;
     
     do { 
-        system("cls");
+        system("clear");
 
         printf("----------------- MENU PRODUTO ------------------\n");
         printf("*            (1) Cadastrar Produto              *\n");
@@ -254,7 +254,7 @@ void menu_compra(List_Prod *plist, Cliente *cliente) {
     Produto *produto;
 
     do {
-        system("cls");
+        system("clear");
         printf("----------------------- Modo Compra ----------------------\n");
         dados_cliente(cliente);
         printf("*          (1) Incluir produtos no carrinho              *\n");
@@ -544,33 +544,40 @@ Cliente *buscar_cliente_cpf(List * list) {
     Método que permite editar o cliente.
 */
 void edita_cliente(Cliente *cliente, List *list) {
-    char novo_cpf[15]; 
+    char novo_cpf[15];
 
-    cliente->nome = (char *) realloc(cliente->nome, 50*sizeof(char));
-    cliente->email = (char *) realloc(cliente->email, 50*sizeof(char));
-    cliente->telefone = (char *) realloc(cliente->telefone, 20 * sizeof(char));
     printf("------------------------------------------------\n");
+
     printf("Digite o nome do cliente: ");
     scanf(" %[^\n]", cliente->nome);
+
     printf("Digite o email do cliente: ");
     scanf(" %[^\n]", cliente->email);
 
-    printf("Digite o CPF do cliente: "); 
+    printf("Digite o CPF do cliente: ");
     scanf(" %[^\n]", novo_cpf);
-    if(strcmp(novo_cpf, cliente->cpf) != 0) {
-        do{
-            scanf(" %[^\n]", cliente->cpf);
-        } while (verifica_unico(list, cliente->cpf));
+
+    /* só valida se o CPF mudou */
+    if (strcmp(novo_cpf, cliente->cpf) != 0) {
+        while (verifica_unico(list, novo_cpf)) {
+            printf("Digite outro CPF: ");
+            scanf(" %[^\n]", novo_cpf);
+        }
+        strcpy(cliente->cpf, novo_cpf);
     }
-        
-    printf("Digite o dia que o cliente nasceu: "); 
-    scanf("%d", &cliente->nascimento.dia); 
-    printf("Digite o mes que o cliente nasceu: "); 
-    scanf("%d", &cliente->nascimento.mes); 
-    printf("Digite o ano que o cliente nasceu: "); 
-    scanf("%d", &cliente->nascimento.ano); 
-    printf("Digite o telefone do cliente: "); 
-    scanf(" %[^\n]", cliente->telefone); 
+
+    printf("Digite o dia que o cliente nasceu: ");
+    scanf("%d", &cliente->nascimento.dia);
+
+    printf("Digite o mes que o cliente nasceu: ");
+    scanf("%d", &cliente->nascimento.mes);
+
+    printf("Digite o ano que o cliente nasceu: ");
+    scanf("%d", &cliente->nascimento.ano);
+
+    printf("Digite o telefone do cliente: ");
+    scanf(" %[^\n]", cliente->telefone);
+
     edita_informacao(cliente->nome, 0);
     edita_informacao(cliente->email, 1);
     edita_informacao(cliente->telefone, 3);
@@ -578,6 +585,7 @@ void edita_cliente(Cliente *cliente, List *list) {
     printf("**** Cliente, %s, editado(a) com sucesso ****\n", cliente->nome);
     sleep(2);
 }
+
 
 /*
     Método que exclui o cliente desejado.
@@ -1180,7 +1188,6 @@ void free_lista_produtos(List_Prod *list_prod) {
 
     free(list_prod);
 }
-
 
 
 
