@@ -748,7 +748,6 @@ void print_produtos(List_Prod *plist, int i) {
         printf("--------------------------------------------------\n");
         prod = prod->next;
     }
-    printf("Total de Produto(s): %d\n\n", plist->size);
 
     if(i == 1) { 
         char * liberar = (char *) malloc(sizeof(char));
@@ -1136,12 +1135,10 @@ void free_lista_clientes(List *list) {
     while (cliente_atual != NULL) {
         cliente_prox = cliente_atual->next;
 
-        // libera campos dinâmicos do cliente
         free(cliente_atual->nome);
         free(cliente_atual->email);
         free(cliente_atual->telefone);
 
-        // libera o carrinho do cliente
         Produto *p_atual = cliente_atual->carrinho;
         Produto *p_prox = NULL;
 
@@ -1153,13 +1150,11 @@ void free_lista_clientes(List *list) {
             p_atual = p_prox;
         }
 
-        // libera o próprio cliente
         free(cliente_atual);
 
         cliente_atual = cliente_prox;
     }
 
-    // libera a estrutura da lista
     free(list);
 }
 
